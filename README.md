@@ -8,7 +8,7 @@ for example so an AI assistant (ChatGPT, Claude, etc.) can keep working in the b
 **Python 3.10+** and the following packages (install once):
 
 ```bash
-pip3 install rumps pyobjc-framework-Quartz
+pip3 install rumps
 ```
 
 ## Usage
@@ -17,15 +17,13 @@ pip3 install rumps pyobjc-framework-Quartz
 python3 lid_keepawake.py
 ```
 
-The app appears as a menu bar icon (💤). On first activation macOS will ask for
-your **admin password** (required for `pmset`).
+The app appears as a text label in the menu bar (OFF, ON, or TMR). On first launch macOS will ask for your **admin password** (required for `pmset`). You only need to enter it once — the password is cached in the background so you never have to type it again.
 
 ## Modes
 
 | Menu item | Description |
 |---|---|
 | **Enable / Disable** | Manually toggle keep-awake on or off |
-| **AI Detection (automatic)** | Activates after ~15 s of no keyboard/mouse input (the AI is probably writing). Pauses again once you return. |
 | **Keep awake for a duration** | Timer: 5 / 15 / 20 / 25 / 30 / 45 min or 1 h |
 
 ## Important
@@ -33,8 +31,7 @@ your **admin password** (required for `pmset`).
 - **Use while plugged in!** Running on battery will drain it quickly.
 - The app sets `pmset disablesleep 1`. It is automatically reset on exit
   (also on crash via `atexit`).
-- The "AI detection" is a heuristic: long period of no keyboard/mouse input
-  = the AI is probably writing.
+- **Only one password prompt:** You enter your admin password once on the very first launch. It is cached in the background and never asked again (until a system restart).
 - Compatible with Apple Silicon and Intel Macs.
 
 ## Uninstallation
